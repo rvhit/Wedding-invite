@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-ivory text-brown font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: rgba(181, 150, 90, 0.25);
+  }
+
+  :focus-visible {
+    outline: 2px solid #b5965a;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs sm:text-sm uppercase tracking-luxe text-gold font-sans;
+  }
+
+  .hairline {
+    @apply h-px w-16 bg-gold/60 mx-auto;
+  }
+
+  .section-pad {
+    @apply px-6 py-20 sm:px-8 sm:py-28 lg:py-32;
+  }
+
+  /* Thin gold frame reminiscent of foil stationery borders. */
+  .foil-frame {
+    @apply relative border border-gold/40;
+  }
+  .foil-frame::after {
+    content: '';
+    @apply pointer-events-none absolute inset-[6px] border border-gold/25;
+  }
+}
